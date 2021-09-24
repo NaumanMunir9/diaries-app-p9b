@@ -103,7 +103,7 @@ export const addEntry = (
   }
 };
 
-export const getEntry = (
+export const getEntries = (
   schema: any,
   req: Request
 ): { entries: Entry[] } | Response => {
@@ -112,7 +112,7 @@ export const getEntry = (
 
     return diary.entry;
   } catch (error) {
-    return handleErrors(error, "Failed to get Diary entry.");
+    return handleErrors(error, "Failed to get Diary entries.");
   }
 };
 
