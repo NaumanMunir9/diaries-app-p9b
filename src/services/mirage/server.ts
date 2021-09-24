@@ -17,6 +17,7 @@ export const handleErrors = (error: any, message = "An error occurred") => {
 export const setupServer = (env?: string): Server => {
   return new Server({
     environment: env ?? "development",
+
     models: {
       entry: Model.extend({
         diary: belongsTo(),
@@ -29,6 +30,7 @@ export const setupServer = (env?: string): Server => {
         diary: hasMany(),
       }),
     },
+
     factories: {
       user: Factory.extend({
         username: "test",
@@ -36,9 +38,11 @@ export const setupServer = (env?: string): Server => {
         email: "test@email.com",
       }),
     },
+
     seeds: (server): any => {
       server.create("user");
     },
+
     routes(): void {
       this.urlPrefix = "https://diaries.app";
 
@@ -49,7 +53,7 @@ export const setupServer = (env?: string): Server => {
       this.post("/auth/signup", user.signup);
 
       this.post("/diaries/", diary.create);
-      this.post("/diaries/entries/:id", diary.addEntry);
+      this.post("/diaries/entry/:id", diary.addEntry);
 
       this.put("/diaries/entry/:id", diary.updateEntry);
       this.put("/diaries/:id", diary.updateDiary);
