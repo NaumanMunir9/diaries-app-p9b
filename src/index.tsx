@@ -1,10 +1,26 @@
+// libraires
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import { store } from "./app/store";
 import { Provider } from "react-redux";
+
+// App
+import App from "./App";
+
+// styles
+import "./index.css";
+
+// redux store
+import { store } from "./app/store";
+
+// service worker
 import * as serviceWorker from "./serviceWorker";
+
+// mirage/server
+import { setupServer } from "./services/mirage/server";
+
+if (process.env.NODE_ENV === "development") {
+  setupServer();
+}
 
 ReactDOM.render(
   <React.StrictMode>
