@@ -10,7 +10,7 @@ import App from "./App";
 import "./index.css";
 
 // redux store
-import { store } from "./app/store";
+import store from "./store";
 
 // service worker
 import * as serviceWorker from "./serviceWorker";
