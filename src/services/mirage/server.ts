@@ -5,7 +5,8 @@ import { Server, Model, Factory, belongsTo, hasMany, Response } from "miragejs";
 import * as user from "./routes/user";
 import * as diary from "./routes/dairy";
 
-export const handleErrors = (error: any, message = "An error occurred") => {
+export const handleErrors = (error: any, message = "An error ocurred") => {
+  console.error("Error: ", error);
   return new Response(400, undefined, {
     data: {
       message,
