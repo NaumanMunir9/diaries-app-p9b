@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
 // App
-import App from "./App";
+import App from "./app/App";
 
 // styles
 import "./index.css";
