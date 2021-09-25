@@ -21,7 +21,7 @@ import { Entry } from "../../interfaces/entry.interface";
 const DiaryEntriesList: FC = () => {
   const { entries } = useSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
-  const { id } = useParams();
+  const { id } = useParams<any>();
 
   useEffect(() => {
     if (id != null) {
