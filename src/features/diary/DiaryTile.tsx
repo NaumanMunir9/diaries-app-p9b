@@ -34,10 +34,9 @@ const buttonStyle: React.CSSProperties = {
 const DiaryTile: FC<Props> = (props) => {
   const [diary, setDiary] = useState(props.diary);
   const [isEditing, setIsEditing] = useState(false);
-
   const dispatch = useAppDispatch();
 
-  const totalEntries = props.diary.entryIds?.length;
+  const totalEntries = props.diary?.entryIds?.length;
 
   const saveChanges = () => {
     http
@@ -54,16 +53,17 @@ const DiaryTile: FC<Props> = (props) => {
   };
 
   return (
-    <div className="diary-title">
+    <div className="diary-tile">
       <h2
         className="title"
         title="Click to edit"
         onClick={() => setIsEditing(true)}
-        style={{ cursor: "pointer" }}
+        style={{
+          cursor: "pointer",
+        }}
       >
         {isEditing ? (
           <input
-            type="text"
             value={diary.title}
             onChange={(e) => {
               setDiary({
@@ -81,7 +81,6 @@ const DiaryTile: FC<Props> = (props) => {
           <span>{diary.title}</span>
         )}
       </h2>
-
       <p className="subtitle">{totalEntries ?? "0"} saved entries</p>
 
       <div style={{ display: "flex" }}>
@@ -95,10 +94,9 @@ const DiaryTile: FC<Props> = (props) => {
         >
           Add New Entry
         </button>
-
         <Link to={`diary/${diary.id}`} style={{ width: "100%" }}>
           <button className="secondary" style={buttonStyle}>
-            View All &#8594;
+            View all &rarr;
           </button>
         </Link>
       </div>
